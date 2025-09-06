@@ -1,4 +1,4 @@
-Home Lab 
+### Home Lab 
 
 My intention is to apply my knowledge into small projects:
 
@@ -7,4 +7,4 @@ My intention is to apply my knowledge into small projects:
 - Writing scripts with Bash and Python
 - Testing system logs
 
-Also I am going to test my knowledge from TryHackMe and describe it here with examples.
+Also I am going to test my knowledge from **TryHackMe** and describe it here with examples.
