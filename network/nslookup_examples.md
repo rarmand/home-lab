@@ -30,18 +30,22 @@ Addresses:  2a02:ec80:300:ed1a::1
           185.15.59.224
 ```
 
+<br></br>
 First 2 lines: private IP address from local net. Not public.
 
 In the first response we see added __#53__ what means used UDP port 53.
 
+<br></br>
 With Windows CMD ...
 
+<br></br>
 **Non-authoritative answer:**
 
 means that the responding DNS server is not the autoritative server for the domain. The response comes from a cached copy of the DNS data. The data is usually stored by an intermediate server (ISP's DNS server).
 
 To get an authoritative answer, we can query the authoritative DNS server directly.
 
+<br></br>
 The last 2 lines show the correct reponse:
 
 - name of the requested domain
@@ -49,7 +53,7 @@ The last 2 lines show the correct reponse:
 
 __Fun fact__: Windows's CMD shows also IPv6.
 
-
+<br></br>
 To request the authoritative server, first we need to request for the NS records of the domain:
 
 ```

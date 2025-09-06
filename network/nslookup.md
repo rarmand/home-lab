@@ -3,15 +3,15 @@
 > https://www.nslookup.io/
 > https://www.nslookup.io/learning/
 
-**nslookup** - a diagnostic tool to request Domain Name System servers about more details of DNS records (hostnames or IP addresses).  
+A diagnostic tool to request Domain Name System servers about more details of DNS records (hostnames or IP addresses).  
 
-&nbsp;
-Operates at the OSI's Application layer 7.
+<br/><br/>
+Operates at the OSI's **Application layer 7**.
 
 Uses UDP port 53.
 Uses TCP port 53 as a default fallback.
 
-&nbsp;
+<br/><br/>
 Available record types: 52.
 
 The most common:
@@ -24,7 +24,7 @@ The most common:
 - TXT - human-readable text
 - SOA - start of authority
 
-&nbsp;
+<br/><br/>
 Usable for:
 - DNS diagnostics
 - Tracerouting
