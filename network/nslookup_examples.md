@@ -93,8 +93,8 @@ Name:   wikipedia.org
 Address: 185.15.59.224
 ```
 ___
-<br></br>
-The request for a specific type of information, for example IPv6.
+### Check a specific type of information about a domain
+For example IPv6, we use **-query=[TYPE]**.
 
 Input:
 ```
