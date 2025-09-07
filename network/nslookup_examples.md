@@ -1,5 +1,3 @@
-Used Bash on macOS.
-
 ### Check IP address
 
 Input:
@@ -33,7 +31,7 @@ ____
 <br></br>
 First 2 lines: a private IP address from  a local net. Not public. In this case we get only IPv4 address.
 
-In the first output we see an added __#53__, what means a used UDP port 53, because the request is sent from our IP.
+In the first output we see an added __#53__, what means a used UDP port 53, because the request is sent from our IP. ???
 
 <br></br>
 The output from Windows CMD differs from Linux one. This is likely due to differences in the way the **nslookup** tool is implemented and its default configuration in each operating system.
@@ -121,7 +119,7 @@ The response is correct, still from a non-authoritative server.
 The IPv6 address matches the one provided by the CMD nslookup.
 ___
 
-### Check MX domain
+### Check MX of a domain
 
 It is possible to check if the hostname uses any server to manage mails. Here we use **MX type - mail exchange**. 
 
@@ -165,3 +163,202 @@ If two MX records have the same preference value, the SMTP client is required to
 As the value increases, preference for the mail server in that particular MX record decreases.
 
 In this example, the sender has a 50% chance to use a mail exchanger no. 1 and a 50% chance to use a mail exchanger no. 2.
+___
+
+### Check NS of a domain
+
+**NS - Name Server**
+
+The answer usually comes from the DNS server provided by an ISP.
+
+Input:
+```
+nslookup -query=NS wikipedia.org
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+wikipedia.org   nameserver = ns0.wikimedia.org.
+wikipedia.org   nameserver = ns1.wikimedia.org.
+wikipedia.org   nameserver = ns2.wikimedia.org.
+
+Authoritative answers can be found from:
+wikipedia.org   nameserver = ns1.wikimedia.org.
+wikipedia.org   nameserver = ns2.wikimedia.org.
+wikipedia.org   nameserver = ns0.wikimedia.org.
+```
+
+### Check CNAME of a domain
+
+Input:
+```
+nslookup -query=CNAME wikipedia.org
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+*** Can't find wikipedia.org: No answer
+
+Authoritative answers can be found from:
+wikipedia.org
+        origin = ns0.wikimedia.org
+        mail addr = hostmaster.wikimedia.org
+        serial = 2025080821
+        refresh = 43200
+        retry = 7200
+        expire = 1209600
+        minimum = 3600
+
+```
+
+Input:
+```
+nslookup -query=CNAME 8.8.8.8
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+8.8.8.8.in-addr.arpa    name = dns.google.
+
+Authoritative answers can be found from:
+
+```
+
+### Request to another DNS Server
+
+Here, we can use:
+- Cloudflare DNS - 1.1.1.1
+- Google Public DNS - 8.8.8.8 or 8.8.4.4
+
+#### Google Public DNS
+
+Input:
+```
+nslookup -query=CNAME 8.8.8.8
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+8.8.8.8.in-addr.arpa    name = dns.google.
+
+Authoritative answers can be found from:
+
+```
+
+Input:
+```
+nslookup dns.google
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+Name:   dns.google
+Address: 8.8.4.4
+Name:   dns.google
+Address: 8.8.8.8
+
+```
+
+Input:
+```
+nslookup -query=NS wikipedia.org 8.8.4.4
+```
+
+Output:
+```
+Server:         8.8.4.4
+Address:        8.8.4.4#53
+
+Non-authoritative answer:
+wikipedia.org   nameserver = ns0.wikimedia.org.
+wikipedia.org   nameserver = ns1.wikimedia.org.
+wikipedia.org   nameserver = ns2.wikimedia.org.
+
+Authoritative answers can be found from:
+
+```
+
+#### Cloudflare
+
+Input:
+```
+nslookup 1.1.1.1
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+1.1.1.1.in-addr.arpa    name = one.one.one.one.
+
+Authoritative answers can be found from:
+
+```
+
+Input:
+```
+nslookup -query=cname one.one.one.one
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+*** Can't find one.one.one.one: No answer
+
+Authoritative answers can be found from:
+one.one.one
+        origin = dorthy.ns.cloudflare.com
+        mail addr = dns.cloudflare.com
+        serial = 2382211228
+        refresh = 10000
+        retry = 2400
+        expire = 604800
+        minimum = 1800
+
+```
+
+What does it mean?
+
+### Request for a domain with an IP address
+
+Input:
+```
+nslookup 8.8.8.8
+```
+
+Output:
+```
+Server:         192.168.1.10
+Address:        192.168.1.10#53
+
+Non-authoritative answer:
+8.8.8.8.in-addr.arpa    name = dns.google.
+
+Authoritative answers can be found from:
+
+```
