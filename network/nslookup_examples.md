@@ -94,7 +94,10 @@ Address: 185.15.59.224
 ```
 ___
 ### Check a specific type of information about a domain
-For example IPv6, we use **-query=[TYPE]**.
+
+Here, we use **-query=[TYPE]**.
+
+In this example, we request for an info about an IPv6 address - type **AAAA**.
 
 Input:
 ```
