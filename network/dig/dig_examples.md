@@ -57,6 +57,7 @@ Got answer:
 
 **NXDOMAIN** - Non-Existent Domain
 
+----
 
 Input:
 
@@ -80,6 +81,7 @@ Output:
 8.8.8.8.in-addr.arpa.   11646   IN      PTR dns.google.
 ...
 ```
+____
 
 ### Check TXT from authoritative DNS server
 
@@ -113,6 +115,8 @@ ferrari.com.            21600   IN      NS      zac.ns.cloudflare.com.
 ```
 
 Here we got 2 authoritative servers.
+
+_____
 
 Input:
 ```
@@ -166,4 +170,37 @@ and no _ra_ flag.
 
 Also, we are getting ANSWERS: 13.
 
-The message is too large for UDP single packet (512 B by default), so the message is truncated and next, the process looks like it is repeated in TCP mode. We do not get a TR flag - _truncated_.
+The message is too large for UDP single packet (512 B by default), so the message is truncated and next, the process looks like it is repeated in TCP mode. We do not get a TC flag - _truncated_.
+
+____
+
+### Show only answer details
+
+This tells dig to just print what’s in the “Answer” section of the DNS response. 
+
+Input:
+```
+dig +noall +answer ferrari.com
+```
+
+Output:
+```
+ferrari.com.            60      IN      A       18.66.233.34
+ferrari.com.            60      IN      A       18.66.233.8
+ferrari.com.            60      IN      A       18.66.233.15
+ferrari.com.            60      IN      A       18.66.233.83
+```
+___
+
+### Shorten the answer
+
+Input:
+```
+dig +short ns ferrari.com
+```
+
+Output:
+```
+zac.ns.cloudflare.com.
+margot.ns.cloudflare.com.
+```

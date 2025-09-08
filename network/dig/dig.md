@@ -1,10 +1,11 @@
 **DIG** - domain information groper
 
-It is said that **dig** tool is more flexible and more often used by specialists to dig in the Web.
+It is said that **dig** tool is more flexible and more often used by specialists to dig into the Web.
 
 Interesting thing:
 > https://toolbox.googleapps.com/apps/dig
 > https://www.ibm.com/docs/pl/aix/7.1.0?topic=d-dig-command
+> https://www.scaleway.com/en/docs/domains-and-dns/how-to/test-dns-zones-with-dig/
 
 Regular query:
 
@@ -79,3 +80,20 @@ What do we have here?
 - **WHEN** - timestamp of the query execution.
 
 - **MSG SIZE** - size of the DNS message received.
+<br></br>
+
+> https://www.linux.com/training-tutorials/check-your-dns-records-dig/
+
+____
+
+Additional tools:
+
+ - **-x** - used to make a reverse DNS query.
+
+ - **-f** - reads queries from a file and returns the results.
+
+ - **-c** - determines how many times the specified query will be executed.
+
+ - **-p** - specifies the port used when making DNS queries.
+
+ - **-y** - used with the HMAC-MD5 key and password to authenticate DNS queries.
