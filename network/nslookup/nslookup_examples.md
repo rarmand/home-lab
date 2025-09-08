@@ -28,17 +28,17 @@ Addresses:  2a02:ec80:300:ed1a::1
           185.15.59.224
 ```
 ____
-<br></br>
+
 First 2 lines: a private IP address from  a local net. Not public. In this case we get only IPv4 address.
 
 In the first output we see an added __#53__, what means a used UDP port 53, because the request is sent from our IP. ???
 
-<br></br>
+
 The output from Windows CMD differs from Linux one. This is likely due to differences in the way the **nslookup** tool is implemented and its default configuration in each operating system.
 
 The interactive version of **nslookup** should present more information about the sender.
 ____
-<br></br>
+
 **Non-authoritative answer:**
 
 means that the responding DNS server is not the autoritative server for the domain. The response comes from a cached copy of the DNS data. The data is usually stored by an intermediate server (ISP's DNS server).
@@ -53,7 +53,7 @@ The last 2 lines show the correct reponse:
 
 __Fun fact__: Windows CMD presents both IPv6 and IPv4 addresses. This suggests that the CMD version of the tool is designed to request and display more comprehensive DNS information by default.
 ____
-<br></br>
+
 To request the authoritative server, first we need to request for the NS records of the domain:
 
 Input:
@@ -152,7 +152,7 @@ The output presents:
 - **preference**: a 16-bit unsigned integer value. Lower values indicate higher preference. It is legal to have a preference value zero. This indicates the highest possible preference.
 - **mail exchange**: the fully qualified DNS name of a mail exchange for the domain.
 
-<br></br>
+
 **The preference is interesting.**
 The MX preference field allows the mail administrator for the domain to control the order in which mail servers are used by SMTP clients. 
 
