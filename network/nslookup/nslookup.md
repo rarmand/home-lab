@@ -30,3 +30,13 @@ Usable for:
 - Tracerouting
 - Configuration verification
 - Connection troubleshooting
+
+Przykład zapytania:
+
+```
+nslookup -query=A wikipedia.org
+```
+
+```
+nslookup -type=AAAA wikipedia.org
+```

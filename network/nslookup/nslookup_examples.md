@@ -191,6 +191,7 @@ wikipedia.org   nameserver = ns1.wikimedia.org.
 wikipedia.org   nameserver = ns2.wikimedia.org.
 wikipedia.org   nameserver = ns0.wikimedia.org.
 ```
+____
 
 ### Check CNAME of a domain
 
@@ -235,6 +236,7 @@ Non-authoritative answer:
 Authoritative answers can be found from:
 
 ```
+____
 
 ### Request to another DNS Server
 
@@ -343,6 +345,23 @@ one.one.one
 ```
 
 What does it mean?
+1. No answer is found.
+2. Next - Authoritative SOA Record Details - Start of Authority record, which contains administrative and technical details about the domain:
+
+	• **origin** - the primary authoritative nameserver for the zone.
+
+	• **mail addr** - the administrator’s email address (SOA stores `@` as a dot, i.e., `dns@cloudflare.com`).
+
+	• **serial** - version number for the DNS zone file; increases with each change.
+
+	• **refresh** - time interval (in seconds) after which secondary DNS servers should check for updates.
+
+	• **retry** - time interval for how long a secondary server should wait before retrying updates.
+
+	• **expire** - how long a secondary can use zone data without successful updates.
+
+	• **minimum** - default TTL (time to live) for records in the zone.
+____
 
 ### Request for a domain with an IP address
 
