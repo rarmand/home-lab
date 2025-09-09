@@ -34,9 +34,9 @@ Pros: High uptime, faster domain resolution, strong security against DNS attacks
 Cons: Google collects some user data.
 Best for: General users needing reliability and speed.
 
-> https://www.lh.pl/pomoc/iana-co-to-jest/
-
 ___
+
+> https://www.lh.pl/pomoc/iana-co-to-jest/
 
 **IANA** - Internet Assigned Numbers Authority 
 An organization responsible for globally coordinating key elements of the Internet’s infrastructure. Its main roles are:
