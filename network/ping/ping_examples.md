@@ -1,4 +1,4 @@
-### Check IP address 
+### Check not responding IP address 
 
 Input:
 ```
@@ -45,3 +45,37 @@ Request timeout for icmp_seq 3
 <br></br>
 After checking all IP addresses, it looks like all IPs are not responding. It is interesting.
 ___
+
+
+### Check responding IP address
+
+
+Input:
+```
+ping filharmoniakrakow.pl
+```
+
+Output:
+```
+PING filharmoniakrakow.pl (46.242.202.251): 56 data bytes
+64 bytes from 46.242.202.251: icmp_seq=0 ttl=49 time=35.206 ms
+64 bytes from 46.242.202.251: icmp_seq=1 ttl=49 time=54.633 ms
+64 bytes from 46.242.202.251: icmp_seq=2 ttl=49 time=39.348 ms
+...
+--- filharmoniakrakow.pl ping statistics ---
+8 packets transmitted, 8 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 35.206/42.016/54.633/5.424 ms
+```
+
+Here, we get a correct response with ICMP Echo Reply.
+
+We get info:
+- packets transmitted - 8
+- packets received - 8
+- packet loss - 0.0%
+- round-trip min - 35.206 ms
+- round-trip average - 42.016 ms
+- round-trip max - 54.633 ms
+- round-trip stddev - 5.424 ms
+
+Nice and easy.
